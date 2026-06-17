@@ -3,7 +3,8 @@ import Strands from "../utils/Strands"
 const HeroBg = () => {
     return (
 
-        <div style={{ width: '100%', height: '100vh' }}>
+
+        <div style={{ width: '100%', height: '100vh'}}>
             <Strands
                 colors={["#F97316", "#7C3AED", "#06B6D4"]}
                 count={3}
