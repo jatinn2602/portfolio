@@ -2,6 +2,13 @@ import agentic from './agentic.png'
 import landing_page from './landing_page.png'
 import internet_speed_test from './internet_speed_test.png'
 import nyay from './nyay_sahayak_chatbot.jpeg'
+import css from './CSS3.svg'
+import html from './HTML5.svg'
+import js from './JavaScript.svg'
+import java from './Java.svg'
+import python from './Python.svg'
+import react from './React.svg'
+import tail from './Tailwind CSS.svg'
 
 const assets = {
     agentic,
@@ -11,3 +18,14 @@ const assets = {
 }
 
 export default assets
+
+export const logos = {
+    css,
+    html,
+    tail,
+    python,
+    java,
+    js,
+    react
+
+}

@@ -32,7 +32,7 @@ const ScrollFloat = ({
 
     const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window;
 
-    const charElements = el.querySelectorAll('.inline-block');
+    const charElements = el.querySelectorAll('.word');
 
     gsap.fromTo(charElements, {
       willChange: 'opacity, transform',

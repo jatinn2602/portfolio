@@ -186,6 +186,21 @@ const PillNav = ({
 
   const isRouterLink = href => href && !isExternalLink(href);
 
+  const handleAnchorClick = (e, href) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href;
+      const targetElement = targetId === '#' ? document.body : document.querySelector(targetId);
+      if (targetElement) {
+        if (window.lenis) {
+          window.lenis.scrollTo(targetElement);
+        } else {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  };
+
   const cssVars = {
     ['--base']: baseColor,
     ['--pill-bg']: pillColor,
@@ -293,6 +308,7 @@ const PillNav = ({
                       aria-label={item.ariaLabel || item.label}
                       onMouseEnter={() => handleEnter(i)}
                       onMouseLeave={() => handleLeave(i)}
+                      onClick={(e) => handleAnchorClick(e, item.href)}
                     >
                       {PillContent}
                     </a>
@@ -372,7 +388,10 @@ const PillNav = ({
                     style={defaultStyle}
                     onMouseEnter={hoverIn}
                     onMouseLeave={hoverOut}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      setIsMobileMenuOpen(false);
+                      handleAnchorClick(e, item.href);
+                    }}
                   >
                     {item.label}
                   </a>

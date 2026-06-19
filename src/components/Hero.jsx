@@ -6,7 +6,7 @@ import GradientText from '../utils/GradientText'
 const Hero = () => {
     return (
         <>
-            <div className='absolute w-screen -z-1'>
+            <div className='absolute w-full overflow-x-hidden -z-1'>
                 <HeroBg />
             </div>
 
