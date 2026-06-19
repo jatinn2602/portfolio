@@ -18,6 +18,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   // Mouse tilt tracking
   const handleMouseMove = (e) => {
@@ -54,17 +55,34 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setIsSubmitting(true);
-    
-    // Simulate API request (1.5 seconds)
-    setTimeout(() => {
+    setErrorMsg('');
+
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsSuccess(true);
+      } else {
+        setErrorMsg(data.error || 'Failed to transmit message. Please try again.');
+      }
+    } catch (err) {
+      setErrorMsg('Network error. Failed to reach transmission gateway.');
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-    }, 1800);
+    }
   };
 
   const handleReset = () => {
@@ -75,6 +93,7 @@ const Contact = () => {
       message: ''
     });
     setIsSuccess(false);
+    setErrorMsg('');
   };
 
   return (
@@ -257,6 +276,12 @@ const Contact = () => {
                       className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all duration-300 backdrop-blur-md resize-none"
                     />
                   </div>
+
+                  {errorMsg && (
+                    <div className="text-red-400 text-xs font-semibold ml-1 bg-red-500/10 border border-red-500/20 px-4 py-2.5 rounded-xl text-center" style={{ transform: 'translateZ(10px)' }}>
+                      {errorMsg}
+                    </div>
+                  )}
 
                   {/* Submit Button */}
                   <button
