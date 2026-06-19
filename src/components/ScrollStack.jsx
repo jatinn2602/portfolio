@@ -15,9 +15,9 @@ export const ScrollStackItem = ({
   if (children) {
     return (
       <div
-        className={`scroll-stack-card sticky w-full max-w-[1200px] h-[70vh] rounded-[40px] overflow-hidden bg-[#0A0A0C]/80 border border-white/[0.08] backdrop-blur-2xl shadow-2xl flex flex-col md:flex-row mb-[25vh] last:mb-[15vh] transform-gpu will-change-transform ${className}`.trim()}
+        className={`scroll-stack-card sticky w-full max-w-[1200px] h-[30vh] rounded-[40px] overflow-hidden bg-[#0A0A0C]/80 border border-white/[0.08] backdrop-blur-2xl shadow-2xl flex flex-col md:flex-row mb-[5vh] last:mb-[5vh] transform-gpu will-change-transform ${className}`.trim()}
         style={{
-          top: '15vh',
+          top: '5vh',
           transform: 'translate3d(0,0,0) scale(1)',
           filter: 'none',
           zIndex: index
@@ -30,7 +30,7 @@ export const ScrollStackItem = ({
 
   return (
     <div
-      className={`scroll-stack-card sticky w-full max-w-[1200px] h-[70vh] rounded-[40px] overflow-hidden bg-[#0A0A0C]/85 border border-white/[0.08] backdrop-blur-3xl shadow-2xl flex flex-col md:flex-row mb-[25vh] last:mb-[15vh] transform-gpu will-change-transform ${className}`.trim()}
+      className={`scroll-stack-card sticky w-full max-w-[1200px] h-[50vh] rounded-[40px] overflow-hidden bg-[#0A0A0C]/85 border border-white/[0.08] backdrop-blur-3xl shadow-2xl flex flex-col md:flex-row mb-[5vh] last:mb-[15vh] transform-gpu will-change-transform ${className}`.trim()}
       style={{
         top: '15vh',
         transform: 'translate3d(0,0,0) scale(1)',

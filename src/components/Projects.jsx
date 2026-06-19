@@ -1,39 +1,37 @@
-import React from 'react';
 import ScrollStack, { ScrollStackItem } from './ScrollStack';
 import ScrollFloat from './ScrollFloat';
+import assets from '@/assets/assets';
 
 const PROJECTS_DATA = [
   {
-    title: 'Aether OS',
-    summary: 'A futuristic spatial computing operating system featuring holographic widgets, real-time system metrics, gesture mappings, and fluid window management.',
-    imageSrc: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
-    tags: ['React', 'Three.js', 'GSAP', 'WebGL', 'Tailwind CSS'],
-    githubUrl: 'https://github.com',
+    title: 'Agentic-AI',
+    summary: 'A fully responsive clone of a modern agency website, built using React and Tailwind CSS, featuring smooth layouts and a custom cursor ring for an enhanced user experience.',
+    imageSrc: `${assets.agentic}`,
+    tags: ['React','Tailwind CSS', 'GSAP'],
+    githubUrl: 'https://github.com/jatinn2602/agentic-ai',
     liveUrl: 'https://demo.com',
   },
   {
-    title: 'Nexus Pay',
-    summary: 'A premium finance platform inspired by Stripe. Features real-time transaction streams, multi-currency ledger management, fraud metrics, and highly responsive interactive charts.',
-    imageSrc: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
-    tags: ['Next.js', 'Radix UI', 'Recharts', 'PostgreSQL', 'Tailwind CSS'],
-    githubUrl: 'https://github.com',
-    liveUrl: 'https://demo.com',
+    title: 'Stocus - Minimal Stopwatch',
+    summary: 'A beautifully crafted stopwatch experience featuring fullscreen mode and customizable wallpapers for distraction-free focus.',
+    imageSrc: `${assets.landing_page}`,
+    tags: ['JavaScript', 'HTML', 'CSS'],
+    githubUrl: 'https://github.com/jatinn2602/stocus-stopwatch',
+    liveUrl: 'https://stocus.netlify.app',
   },
   {
-    title: 'Vortex AI',
-    summary: 'An interactive neural network builder and playground allowing developers to train and visualize machine learning algorithms directly in the browser with real-time feedback.',
-    imageSrc: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200&q=80',
-    tags: ['React', 'TensorFlow.js', 'Framer Motion', 'Vite', 'CSS Gradients'],
-    githubUrl: 'https://github.com',
-    liveUrl: 'https://demo.com',
+    title: 'Nyay Sahayak ChatBot',
+    summary: 'An AI-powered legal assistance chatbot designed to simplify legal information and provide accessible guidance through natural conversations.',
+    imageSrc: `${assets.nyay}`,
+    tags: ['React-Native', 'TailwindCSS'],
+    githubUrl: 'https://github.com/jatinn2602/NyaySahayakBot-App',
   },
   {
-    title: 'Helios Digital',
-    summary: 'A high-end design portfolio showcase built for creative studios, featuring immersive WebGL distortion grids, fluid interactive typography, and custom liquid page transitions.',
-    imageSrc: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80',
-    tags: ['React', 'OGL', 'GSAP Shaders', 'Web Audio API', 'Tailwind CSS'],
-    githubUrl: 'https://github.com',
-    liveUrl: 'https://demo.com',
+    title: 'Internet Speed Test Checker',
+    summary: 'A Python-based internet speed testing application featuring real-time gauge animations, live download and upload tracking, and an intuitive desktop interface built with Tkinter.',
+    imageSrc: `${assets.internet_speed_test}`,
+    tags: ['Python', 'Tkinter'],
+    githubUrl: 'https://github.com/jatinn2602/internet-speed-check',
   }
 ];
 
@@ -48,7 +46,7 @@ const Projects = () => {
           scrollEnd="bottom bottom-=30%"
           stagger={0.08}
         >
-          Selected Work
+          Projects
         </ScrollFloat>
       </div>
 
