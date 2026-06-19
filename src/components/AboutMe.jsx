@@ -15,9 +15,9 @@ const AboutMe = () => {
             />
 
             <div className="grid grid-cols-2 gap-5">
-                <div className="col-start-1 col-span-1-1 w-3xl mt-52 ml-44 ">
+                <div className="col-start-1 col-span-1-1 w-3xl my-52 ml-44 ">
                     <ScrollReveal
-                        baseOpacity={0.1}
+                        baseOpacity={0.9}
                         enableBlur
                         baseRotation={3}
                         blurStrength={4}
@@ -25,14 +25,14 @@ const AboutMe = () => {
                         Hello, I'm Jatin.
                     </ScrollReveal>
                     <ScrollReveal
-                        baseOpacity={0.1}
+                        baseOpacity={0.9}
                         enableBlur
                         baseRotation={3}
                         blurStrength={4}
                     >I'm a Computer Science Engineering student and software developer who enjoys creating modern web experiences and exploring the intersection of software and AI.
                     </ScrollReveal>
                     <ScrollReveal
-                        baseOpacity={0.1}
+                        baseOpacity={0.9}
                         enableBlur
                         baseRotation={3}
                         blurStrength={4}
@@ -42,8 +42,9 @@ const AboutMe = () => {
                     </ScrollReveal>
             
                 </div>
-                <div className="col-start-2  relative flex items-center">
-                    <img src={model} alt="Jatin Raikwar" className="w-full " />
+                <div className="col-start-2  block flex justify-center items-center right-0">
+                    
+                    <img src={model} alt="Jatin Raikwar" className="w-[800px] rounded-full shadow shadow-gray-300" />
                 </div>
             </div>
 

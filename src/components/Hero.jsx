@@ -11,12 +11,12 @@ const Hero = () => {
             </div>
 
             <div className='flex flex-col justify-center items-center h-screen gap-8'>
-                <h1 className='text-white text-7xl flex gap-6 text-center'>Hello, I'm
+                <h1 className='text-white px-5 py-2 text-7xl flex gap-6 text-center'>Hello, I'm
                     <span><GradientText
                         colors={["#5227FF", "#FF9FFC", "#B497CF"]}
                         animationSpeed={8}
                         showBorder={false}
-                        className="custom-class"
+                        className="custom-class px-5 py-2"
                     >
                         Jatin Raikwar
                     </GradientText></span>
