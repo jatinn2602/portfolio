@@ -249,7 +249,6 @@ const Contact = () => {
                         <option value="Web Development" className="bg-neutral-950 text-white">Web Development</option>
                         <option value="Mobile Application" className="bg-neutral-950 text-white">Mobile Application</option>
                         <option value="UI/UX Design" className="bg-neutral-950 text-white">UI/UX Design</option>
-                        <option value="AI Integration" className="bg-neutral-950 text-white">AI Integration</option>
                         <option value="Other" className="bg-neutral-950 text-white">Other Project</option>
                       </select>
                       {/* Custom dropdown glass arrow */}
