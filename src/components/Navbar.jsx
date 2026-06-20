@@ -16,11 +16,11 @@ const Navbar = () => {
           activeHref="/"
           className="custom-nav"
           ease="power2.easeOut"
-          baseColor="#000000"
-          pillColor="#ffffff"
-          hoveredPillTextColor="#ffffff"
-          pillTextColor="#000000"
-          theme="light"
+          baseColor="#ffffff"
+          pillColor="transparent"
+          hoveredPillTextColor="#000000"
+          pillTextColor="#ffffff"
+          theme="dark"
           initialLoadAnimation={false}
         />
       </div>

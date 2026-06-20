@@ -29,28 +29,21 @@ const AboutMe = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 px-6 md:px-12 lg:px-24 py-16 md:py-32 max-w-7xl mx-auto items-center">
                 <div className="flex flex-col gap-6 md:gap-8 order-2 md:order-1">
-                    <div className="flex flex-wrap gap-x-2 md:gap-x-3 items-center text-3xl md:text-5xl font-extrabold tracking-tight mb-2">
-                        <ScrollReveal
-                            baseOpacity={0.9}
-                            enableBlur
-                            baseRotation={3}
-                            blurStrength={4}
-                            containerClassName="inline-block"
-                            textClassName="text-white text-3xl md:text-5xl font-extrabold"
-                        >
-                            Hello, I'm
-                        </ScrollReveal>
-                        <ScrollReveal
-                            baseOpacity={0.9}
-                            enableBlur
-                            baseRotation={3}
-                            blurStrength={4}
-                            containerClassName="inline-block"
-                            textClassName="bg-gradient-to-br from-[#5227FF] via-[#B497CF] to-[#FF9FFC] bg-clip-text text-transparent pb-2 text-3xl md:text-5xl font-extrabold"
-                        >
-                            Jatin.
-                        </ScrollReveal>
-                    </div>
+                    <ScrollReveal
+                        baseOpacity={0.9}
+                        enableBlur
+                        baseRotation={3}
+                        blurStrength={4}
+                        textClassName="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-2"
+                    >
+                        {[
+                            "Hello, I'm ",
+                            {
+                                text: "Jatin.",
+                                className: "bg-gradient-to-br from-[#5227FF] via-[#B497CF] to-[#FF9FFC] bg-clip-text text-transparent pb-1"
+                            }
+                        ]}
+                    </ScrollReveal>
                     <ScrollReveal
                         baseOpacity={0.9}
                         enableBlur

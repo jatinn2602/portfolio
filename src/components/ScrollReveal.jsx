@@ -19,6 +19,34 @@ const ScrollReveal = ({
   const containerRef = useRef(null);
 
   const splitText = useMemo(() => {
+    if (Array.isArray(children)) {
+      let wordIndex = 0;
+      return children.map((item, idx) => {
+        if (typeof item === 'string') {
+          return item.split(/(\s+)/).map((word) => {
+            if (word.match(/^\s+$/)) return word;
+            wordIndex++;
+            return (
+              <span className="inline-block word" key={`word-${wordIndex}`}>
+                {word}
+              </span>
+            );
+          });
+        } else if (item && typeof item === 'object' && item.text) {
+          return item.text.split(/(\s+)/).map((word) => {
+            if (word.match(/^\s+$/)) return word;
+            wordIndex++;
+            return (
+              <span className={`inline-block word ${item.className || ''}`} key={`word-${wordIndex}`}>
+                {word}
+              </span>
+            );
+          });
+        }
+        return null;
+      });
+    }
+
     const text = typeof children === 'string' ? children : '';
     return text.split(/(\s+)/).map((word, index) => {
       if (word.match(/^\s+$/)) return word;

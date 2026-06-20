@@ -212,7 +212,7 @@ const PillNav = ({
   };
 
   return (
-    <div className="absolute top-[1em] z-[1000] w-full left-0 md:w-auto md:left-auto">
+    <div className="fixed top-[1em] z-[1000] w-full left-0 md:w-auto md:left-auto">
       <nav
         className={`w-full md:w-max flex items-center justify-between md:justify-start box-border px-4 md:px-0 ${className}`}
         aria-label="Primary"
@@ -220,10 +220,9 @@ const PillNav = ({
       >
         <div
           ref={navItemsRef}
-          className="relative items-center rounded-full hidden md:flex ml-2"
+          className="relative items-center rounded-full hidden md:flex ml-2 border border-white/10 bg-neutral-950/20 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.37)]"
           style={{
-            height: 'var(--nav-h)',
-            background: 'var(--base, #000)'
+            height: 'var(--nav-h)'
           }}
         >
           <ul
@@ -324,45 +323,38 @@ const PillNav = ({
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
-          className="md:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1 cursor-pointer p-0 relative"
+          className="md:hidden rounded-full border border-white/10 flex flex-col items-center justify-center gap-1 cursor-pointer p-0 relative bg-neutral-950/40 backdrop-blur-xl shadow-[0_4px_16px_rgba(0,0,0,0.3)] transition-colors duration-300 hover:border-white/20"
           style={{
             width: 'var(--nav-h)',
-            height: 'var(--nav-h)',
-            background: 'var(--base, #000)'
+            height: 'var(--nav-h)'
           }}
         >
           <span
-            className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-[10ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]"
-            style={{ background: 'var(--pill-bg, #fff)' }}
+            className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-300 bg-white"
           />
           <span
-            className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-[10ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]"
-            style={{ background: 'var(--pill-bg, #fff)' }}
+            className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-300 bg-white"
           />
         </button>
       </nav>
 
       <div
         ref={mobileMenuRef}
-        className="md:hidden absolute top-[3em] left-4 right-4 rounded-[27px] shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-[998] origin-top"
-        style={{
-          ...cssVars,
-          background: 'var(--base, #f0f0f0)'
-        }}
+        className="md:hidden absolute top-[3.25em] left-4 right-4 rounded-[24px] border border-white/10 bg-neutral-950/80 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] z-[998] origin-top"
       >
-        <ul className="list-none m-0 p-[3px] flex flex-col gap-[3px]">
+        <ul className="list-none m-0 p-[6px] flex flex-col gap-[4px]">
           {items.map(item => {
             const defaultStyle = {
-              background: 'var(--pill-bg, #fff)',
-              color: 'var(--pill-text, #fff)'
+              background: 'transparent',
+              color: '#d1d5db'
             };
             const hoverIn = e => {
-              e.currentTarget.style.background = 'var(--base)';
-              e.currentTarget.style.color = 'var(--hover-text, #fff)';
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.06)';
+              e.currentTarget.style.color = '#ffffff';
             };
             const hoverOut = e => {
-              e.currentTarget.style.background = 'var(--pill-bg, #fff)';
-              e.currentTarget.style.color = 'var(--pill-text, #fff)';
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.color = '#d1d5db';
             };
 
             const linkClasses =
