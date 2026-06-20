@@ -1,16 +1,47 @@
-# React + Vite
+# Inside My Workspace — Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal portfolio website built to showcase my projects, skills, and interactive UI experiments. The goal was to build a clean, dark-mode digital experience with premium animations, fluid scrolling, and glassmorphism elements.
 
-Currently, two official plugins are available:
+Live Link: [Insert Link Here]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Core Features
+*   **Liquid Glass UI**: Glassmorphic components using backdrop blur filters, thin border layers, and subtle radial hover glows.
+*   **3D Tilt Cards**: Interactive project and skill cards that tilt in 3D space based on mouse position.
+*   **Smooth Scrolling**: Viewport-wide smooth scroll using Lenis, synchronized with GSAP ScrollTrigger.
+*   **Responsive Typography**: Text layouts and fluid font scaling designed to adapt cleanly between desktop screens and mobile viewports.
+*   **Scroll-Driven Parallax**: Profile section images that scale, rotate, and float dynamically as you scroll.
+*   **Interactive Typing Loop**: Custom typing effect in the hero section displaying roles and name in a continuous state-machine loop.
 
-## React Compiler
+## Tech Stack
+*   **Frontend**: React (Vite)
+*   **Styling**: Tailwind CSS
+*   **Animations**: Framer Motion (for components & scroll parallax), GSAP & ScrollTrigger (for float reveals)
+*   **Scroller**: Lenis
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project Structure
+*   `src/components/`: Primary page sections (Hero, About Me, Skills, Projects, Contact).
+*   `src/utils/`: Shared helper components (PillNav, GradientText, ScrollVelocity).
+*   `src/assets/`: Images, logos, and vector assets.
 
-## Expanding the ESLint configuration
+## Running Locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/jatinn2602/portfolio.git
+   cd portfolio
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the local development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
