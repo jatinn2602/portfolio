@@ -71,7 +71,15 @@ const Contact = () => {
         body: JSON.stringify(formData)
       });
 
-      const data = await response.json();
+      let data;
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        data = await response.json();
+      } else {
+        const text = await response.text();
+        const snippet = text ? text.substring(0, 100).replace(/<[^>]*>/g, '').trim() : '';
+        data = { error: `Server returned non-JSON response (${response.status} ${response.statusText})${snippet ? ': ' + snippet : ''}` };
+      }
 
       if (response.ok) {
         setIsSuccess(true);
@@ -79,7 +87,7 @@ const Contact = () => {
         setErrorMsg(data.error || 'Failed to transmit message. Please try again.');
       }
     } catch (err) {
-      setErrorMsg('Network error. Failed to reach transmission gateway.');
+      setErrorMsg('Network error. Failed to reach transmission gateway. Please check your connection.');
     } finally {
       setIsSubmitting(false);
     }
@@ -89,7 +97,7 @@ const Contact = () => {
     setFormData({
       name: '',
       email: '',
-      service: 'Web Development',
+      service: 'Select Your Service',
       message: ''
     });
     setIsSuccess(false);

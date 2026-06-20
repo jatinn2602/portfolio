@@ -278,6 +278,14 @@ const Skills = () => {
       icon: logos.python,
       description: 'Automation scripting, web crawlers, data analysis, and tooling.',
       color: '#3776AB'
+    },
+    {
+      name: 'Git/Github',
+      category: 'Version Control System',
+      proficiency: 79,
+      icon: logos.git,
+      description: 'Remote hosting services to facilitate sharing and collaborative workflows.',
+      color: '#3776AB'
     }
   ];
 

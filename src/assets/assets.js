@@ -9,6 +9,7 @@ import java from './Java.svg'
 import python from './Python.svg'
 import react from './React.svg'
 import tail from './Tailwind CSS.svg'
+import git from './github.svg'
 
 const assets = {
     agentic,
@@ -22,6 +23,7 @@ export default assets
 export const logos = {
     css,
     html,
+    git,
     tail,
     python,
     java,

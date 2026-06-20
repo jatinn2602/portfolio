@@ -1,10 +1,12 @@
-export default async function handler(req, res) {
+// Core mail sending function
+async function sendMail(req, res) {
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, service, message } = req.body;
+  const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+  const { name, email, service, message } = body || {};
 
   // Basic validation
   if (!name || !email || !message) {
@@ -33,7 +35,7 @@ export default async function handler(req, res) {
         to: toEmail,
         subject: `New Portfolio Message from ${name}`,
         html: `
-          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; rounded: 12px;">
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 12px;">
             <h2 style="color: #06B6D4; font-size: 20px; border-bottom: 1px solid #eaeaea; padding-bottom: 10px;">
               New Portfolio Contact Form Submission
             </h2>
@@ -75,4 +77,41 @@ export default async function handler(req, res) {
   } catch (error) {
     return res.status(500).json({ error: `Internal Server Error: ${error.message}` });
   }
+}
+
+// Netlify named export handler
+export async function handler(event, context) {
+  const req = {
+    method: event.httpMethod,
+    body: event.body ? (typeof event.body === 'string' ? JSON.parse(event.body) : event.body) : {}
+  };
+
+  let statusCode = 200;
+  let responseBody = {};
+  
+  const res = {
+    status(code) {
+      statusCode = code;
+      return this;
+    },
+    json(data) {
+      responseBody = data;
+      return this;
+    }
+  };
+
+  await sendMail(req, res);
+
+  return {
+    statusCode,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(responseBody)
+  };
+}
+
+// Vercel default export handler
+export default async function vercelHandler(req, res) {
+  await sendMail(req, res);
 }
