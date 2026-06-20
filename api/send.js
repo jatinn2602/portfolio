@@ -79,9 +79,17 @@ async function sendMail(req, res) {
   }
 }
 
-// Netlify named export handler
-export async function handler(event, context) {
-  const req = {
+// Unified export handler that automatically detects the runtime environment (Vercel vs. Netlify)
+export default async function unifiedHandler(req, res) {
+  // If `res` is passed and has a `status` function, it is Vercel/Express runtime
+  if (res && typeof res.status === 'function') {
+    await sendMail(req, res);
+    return;
+  }
+
+  // Otherwise, we are in Netlify/AWS Lambda runtime (where req=event, res=context)
+  const event = req;
+  const mockReq = {
     method: event.httpMethod,
     body: event.body ? (typeof event.body === 'string' ? JSON.parse(event.body) : event.body) : {}
   };
@@ -89,7 +97,7 @@ export async function handler(event, context) {
   let statusCode = 200;
   let responseBody = {};
   
-  const res = {
+  const mockRes = {
     status(code) {
       statusCode = code;
       return this;
@@ -100,7 +108,7 @@ export async function handler(event, context) {
     }
   };
 
-  await sendMail(req, res);
+  await sendMail(mockReq, mockRes);
 
   return {
     statusCode,
@@ -111,7 +119,5 @@ export async function handler(event, context) {
   };
 }
 
-// Vercel default export handler
-export default async function vercelHandler(req, res) {
-  await sendMail(req, res);
-}
+// Named export for Netlify to match standard serverless invocation
+export const handler = unifiedHandler;
