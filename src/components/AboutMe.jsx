@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'motion/react'
-import ScrollVelocity from "./ScrollVelocity"
-import ScrollReveal from './ScrollReveal';
+import ScrollVelocity from "../utils/ScrollVelocity"
+import ScrollReveal from '../utils/ScrollReveal';
 import model from '../assets/model.png';
 
 const AboutMe = () => {

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'motion/react';
-import ScrollFloat from './ScrollFloat';
+import ScrollFloat from '../utils/ScrollFloat';
 import assets from '@/assets/assets';
 
 const PROJECTS_DATA = [

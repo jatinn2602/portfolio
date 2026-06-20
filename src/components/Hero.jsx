@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import HeroBg from './HeroBg'
+import HeroBg from '../utils/HeroBg'
 import GradientText from '../utils/GradientText'
 
 const Hero = () => {

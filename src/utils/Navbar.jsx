@@ -1,4 +1,4 @@
-import PillNav from '../utils/PillNav';
+import PillNav from './PillNav';
 
 
 const Navbar = () => {

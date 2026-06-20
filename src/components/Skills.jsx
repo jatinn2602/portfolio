@@ -1,6 +1,6 @@
 import { useState, useRef, useMemo } from 'react';
 import { motion } from 'motion/react';
-import CurvedLoop from './CurvedLoop';
+import CurvedLoop from '../utils/CurvedLoop';
 import { logos } from '@/assets/assets';
 
 // Individual Skill Card component with self-contained 3D tilt state

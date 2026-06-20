@@ -1,4 +1,4 @@
-import Strands from "../utils/Strands"
+import Strands from "./Strands"
 
 const HeroBg = () => {
     return (

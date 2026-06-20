@@ -99,19 +99,21 @@ export const ScrollVelocity = ({
 
     const spans = [];
     for (let i = 0; i < (numCopies ?? 1); i++) {
-      spans.push(
-        <span className={`flex-shrink-0 ${className}`} key={i} ref={i === 0 ? copyRef : null}>
-          {children}&nbsp;
-        </span>
-      );
+      spans.push(<span
+        className={`flex-shrink-0 ${className}`}
+        key={i}
+        ref={i === 0 ? copyRef : null}>
+        {children}&nbsp;
+      </span>);
     }
 
     return (
-      <div className={`${parallaxClassName} relative overflow-hidden`} style={parallaxStyle}>
+      <div
+        className={`${parallaxClassName} relative overflow-hidden`}
+        style={parallaxStyle}>
         <motion.div
           className={`${scrollerClassName} flex whitespace-nowrap text-center font-sans text-4xl font-bold tracking-[-0.02em] drop-shadow md:text-[5rem] md:leading-[5rem]`}
-          style={{ x, ...scrollerStyle }}
-        >
+          style={{ x, ...scrollerStyle }}>
           {spans}
         </motion.div>
       </div>
@@ -133,8 +135,7 @@ export const ScrollVelocity = ({
           parallaxClassName={parallaxClassName}
           scrollerClassName={scrollerClassName}
           parallaxStyle={parallaxStyle}
-          scrollerStyle={scrollerStyle}
-        >
+          scrollerStyle={scrollerStyle}>
           {text}
         </VelocityText>
       ))}

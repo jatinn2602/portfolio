@@ -2,12 +2,12 @@ import { useEffect } from 'react';
 import Lenis from 'lenis';
 import AboutMe from "./components/AboutMe"
 import Hero from "./components/Hero"
-import Navbar from "./components/Navbar"
+import Navbar from "./utils/Navbar"
 import Projects from "./components/Projects"
 import Skills from "./components/Skills"
 import Contact from "./components/Contact"
-import Starfield from "./components/Starfield"
-import LiquidCursor from "./components/LiquidCursor"
+import Starfield from "./utils/Starfield"
+import LiquidCursor from "./utils/LiquidCursor"
 
 
 const App = () => {
