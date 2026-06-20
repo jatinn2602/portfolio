@@ -11,9 +11,10 @@ const ScrollFloat = ({
   textClassName = '',
   animationDuration = 1,
   ease = 'back.inOut(2)',
-  scrollStart = 'center bottom+=50%',
-  scrollEnd = 'bottom bottom-=40%',
-  stagger = 0.03
+  scrollStart = 'top bottom-=10%',
+  scrollEnd = 'bottom bottom-=30%',
+  stagger = 0.03,
+  scrub = false
 }) => {
   const containerRef = useRef(null);
 
@@ -54,10 +55,11 @@ const ScrollFloat = ({
         scroller,
         start: scrollStart,
         end: scrollEnd,
-        scrub: true
+        scrub: scrub,
+        toggleActions: scrub ? undefined : 'play none none none'
       }
     });
-  }, [scrollContainerRef, animationDuration, ease, scrollStart, scrollEnd, stagger]);
+  }, [scrollContainerRef, animationDuration, ease, scrollStart, scrollEnd, stagger, scrub]);
 
   return (
     <h2

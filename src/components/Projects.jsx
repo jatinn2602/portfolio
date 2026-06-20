@@ -210,6 +210,8 @@ const Projects = () => {
           scrollStart="top bottom-=10%"
           scrollEnd="bottom bottom-=30%"
           stagger={0.08}
+          scrub={false}
+          textClassName="font-sans font-extrabold text-white text-3xl md:text-5xl tracking-tight"
         >
           Projects
         </ScrollFloat>
