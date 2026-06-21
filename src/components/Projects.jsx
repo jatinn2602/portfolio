@@ -10,7 +10,7 @@ const PROJECTS_DATA = [
     imageSrc: `${assets.agentic}`,
     tags: ['React','Tailwind CSS', 'GSAP'],
     githubUrl: 'https://github.com/jatinn2602/agentic-ai',
-    liveUrl: 'https://demo.com',
+    liveUrl: 'https://agenticai-demo.netlify.app',
   },
   {
     title: 'Stocus - Minimal Stopwatch',
